@@ -16,7 +16,10 @@ def str2bool(a):
 
 
 def create_optimizer(cfg, model):
-
+    r'''
+    return optimizer based on config. 
+    available : adam and sgd.
+    '''
     model_params = [params for params in model.parameters() if params.requires_grad]
     if cfg.opt_type == 'adam':
         optimizer = torch.optim.Adam(model_params, lr = cfg.lr, 
@@ -31,12 +34,18 @@ def create_optimizer(cfg, model):
 
 
 def adjust_lr(optim, cfg, idx, len_trainer):
+    r'''
+    func to adjust learning rate, after ever iteration.
+    '''
     lr = lr_poly(cfg.lr, idx, len_trainer, cfg.power)
     optim.param_groups[0]['lr'] = lr
     return lr
 
 
 def lr_poly(base_lr, idx, max_iter, power):
+    r'''
+    polynomial laerning rate schedular
+    '''
     return base_lr * (1 - (float(idx) / max_iter)) ** power
 
 
