@@ -28,12 +28,12 @@ class Cityscapes(Dataset):
         self.list = listdir
         self.rgb = rgb
   
-
         self.files = []
         self.img_locs = [files.strip().split() for files in open(self.list)]
 
-        if max_iters is not None:
+        if max_iters is not None: # for distributed training
             self.img_locs = self.img_locs * int(np.ceil(float(max_iters) / len(self.img_locs)))
+            
         for _img_path, _gt_path in self.img_locs:
             self.files.append({'image' : _img_path,
             'gt' : _gt_path
