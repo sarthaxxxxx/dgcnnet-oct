@@ -25,13 +25,14 @@ from utils.dataset import Cityscapes
 from utils.losses import CriterionDSN, CriterionOhemDSN
 
     
-
 start = timeit.default_timer()
 
 def main():
 
     cfg = get_arguments()
-
+    '''
+    For reproducibility and controlling randomness. 
+    '''
     if cfg.seed is not None:
         torch.manual_seed(cfg.seed)
         cudnn.deterministic = True
@@ -134,7 +135,7 @@ def main_worker(cfg):
 
     torch.cuda.empty_cache()
 
-    trainer(train_loader, optimizer, loss_criterion, cfg, dgcn, model)
+    trainer(train_loader, optimizer, loss_criterion, cfg, dgcn, model) #train the model and get preds
 
     end = timeit.default_timer()
 
