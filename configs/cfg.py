@@ -1,7 +1,7 @@
 import os
 import argparse
 
-ROOT_DIR = "C:\\Users\\sarth\\Desktop\\dgcn\\" 
+ROOT_DIR = "./dgcn/" 
 
 def get_arguments():
     r"""Define all the configurations of the project here.
