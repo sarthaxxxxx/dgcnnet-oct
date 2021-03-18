@@ -1,0 +1,1 @@
+from .cfg import get_arguments as cfg
