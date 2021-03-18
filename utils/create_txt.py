@@ -14,9 +14,9 @@ def __filegen__(root, mode, save):
 	img_paths, gt_paths = [], [] 
 
 	for idx in sorted(os.listdir(os.path.join(images_path, mode))):
-		for jdx in sorted(os.listdir(os.path.join(images_path, mode + '\\' + idx))):
-			img_paths.append(os.path.join(images_path, mode + '\\' + idx + '\\' + jdx))
-			gt_paths.append(os.path.join(gt_path, mode + '\\' + idx + '\\' + jdx.replace(jdx.split('_')[3], 'gtFine_labelIds.png')))
+		for jdx in sorted(os.listdir(os.path.join(images_path, mode + '/' + idx))):
+			img_paths.append(os.path.join(images_path, mode + '/' + idx + '/' + jdx))
+			gt_paths.append(os.path.join(gt_path, mode + '/' + idx + '/' + jdx.replace(jdx.split('_')[3], 'gtFine_labelIds.png')))
 
 	try:
 		with open(os.path.join(save, mode + '.txt'), 'w') as f:
@@ -36,4 +36,4 @@ def __filegen__(root, mode, save):
 
 if __name__=='__main__':
 	for mode in ['train', 'val', 'test']:
-		__filegen__('C:\\Users\\sarth\\Desktop\\dgcn\\city_dataset', mode, 'C:\\Users\\sarth\\Desktop\\dgcn\\data')
+		__filegen__('./dgcn/city_dataset/', mode, './dgcn/data/')
