@@ -174,6 +174,9 @@ if __name__ == '__main__':
     For multiprocessing distributed training.
     '''
     try:
+        os.system('git clone https://github.com/NVIDIA/apex; cd apex; pip install -v --no-cache-dir' + 
+                 ' --global-option="--cpp_ext" --global-option="--cuda_ext" ./')  #install nvidia-apex
+        os.system('rm -rf apex/.git')
         import apex
         from apex import amp
         from apex.apex.parallel import DistributedDataParallel, SyncBatchNorm
