@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from bottleneck import Bottleneck as bot
+from src.models.bottleneck import Bottleneck as bot
 
 
 def DGCNNet_ResNet101(classes):
