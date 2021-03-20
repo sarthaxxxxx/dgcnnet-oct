@@ -154,7 +154,7 @@ def main_worker(gpu, cfg):
 
                 if epoch % cfg.checkpoint_freq == 0:
                     print(f'Saving model at epoch: {epoch + 1}')
-                    torch.save(dgcn.state_dict(), os.path.join(cfg.model_loc, str(cfg.arch) + str(idx) + '.pth')) 
+                    torch.save(dgcn.state_dict(), os.path.join(cfg.model_loc, str(cfg.arch) + str(epoch) + '.pth')) 
 
     end = timeit.default_timer()
 
