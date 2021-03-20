@@ -1,3 +1,7 @@
+r"""
+Using torch.nn.parallel's DDP instead of NVIDIA-Apex.
+"""
+
 import os
 import csv 
 import cv2 
