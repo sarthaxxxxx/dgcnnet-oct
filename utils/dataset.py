@@ -74,7 +74,7 @@ class Cityscapes(Dataset):
         else:
             pad_image, pad_gt = image, gt
 
-        height, width = gt.shape
+        height, width = pad_gt.shape
         h_off = random.randint(0, height - self.crop_height)
         w_off = random.randint(0, width - self.crop_width)
 
